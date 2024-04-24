@@ -85,9 +85,9 @@ public class CodigoMfaService {
             }
 
             if (hasPassed5Minutes(codigoMfa.getFechaHora())) {
-                response.setCodigoRespuesta("000");
+                response.setCodigoRespuesta("999");
                 response.setDescripcionRespuesta("El codigo ha expirado.");
-                return new ResponseEntity<>(response, HttpStatus.OK);
+                return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
             }
 
             if (request.getCodigo().trim().equals(codigoMfa.getCodigo())) {
@@ -123,6 +123,6 @@ public class CodigoMfaService {
     public static boolean hasPassed5Minutes(LocalDateTime timestamp) {
         LocalDateTime now = LocalDateTime.now();
         long minutes = ChronoUnit.MINUTES.between(timestamp, now);
-        return minutes >= 5;
+        return minutes >= 1;
     }
 }
