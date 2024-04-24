@@ -1,0 +1,53 @@
+<section class="mfa-container">
+  <div class="mfa-title">
+    <h2 mat-dialog-title>Verificacion para Ingreso</h2>
+    <span></span>
+  </div>
+
+  <mat-dialog-content>
+    <div class="mfa-informacion">
+      <p>Se enviará un código de verificación para complementar el proceso de ingreso:</p>
+    </div>
+
+    <div>
+      <div class="mfa-enviar-codigo-container">
+        <div class="mfa-form">
+          <mat-form-field>
+            <mat-label for="input-codigo-mfa">Digite su email</mat-label>
+            <input matInput type="text" name="correo-mfa" id="input-correo-mfa" [formControl]="formCorreo" />
+          </mat-form-field>
+        </div>
+
+        <button mat-raised-button class="mfa-btn-enviar-codigo" (click)="generarCodigo()" [disabled]="!formCorreo.valid || formCorreo.value == ''">
+          Enviar Codigo
+        </button>
+
+        @if (mensaje != '') {
+        <p class="mfa-mensaje">
+          <b>{{ mensaje }}</b>
+        </p>
+        }
+      </div>
+
+      <div class="mfa-form">
+        <mat-form-field>
+          <mat-label for="input-codigo-mfa">Registrar Codigo:</mat-label>
+          <input matInput type="text" name="codigo-mfa" id="input-codigo-mfa" [formControl]="formCodigoMfa" />
+        </mat-form-field>
+      </div>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions class="mfa-btn-container">
+    <button
+      mat-raised-button
+      color="primary"
+      class="mfa-btn-validar-codigo"
+      (click)="validarCodigo()"
+      [disabled]="!formCodigoMfa.valid || formCodigoMfa.value == ''"
+    >
+      Aceptar
+    </button>
+    <button mat-raised-button class="mfa-btn-cancelar">Cancelar</button>
+  </mat-dialog-actions>
+</section>

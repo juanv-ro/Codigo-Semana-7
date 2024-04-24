@@ -1,0 +1,68 @@
+.mfa-container {
+  width: 30vw;
+  padding: 5%;
+  border: 1px solid;
+  border-radius: 10px;
+  margin: 5% auto;
+  box-shadow: 5px 5px 10px gray;
+
+  .mfa-title {
+    text-align: center;
+
+    span {
+      display: block;
+      border: 0.2px solid black;
+      width: 70%;
+      margin: 0px auto;
+    }
+  }
+
+  .mfa-informacion {
+    width: 60%;
+    text-align: justify;
+    margin: 0px auto;
+  }
+
+  .mfa-enviar-codigo-container {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    margin-bottom: 5%;
+
+    .mfa-btn-enviar-codigo {
+      color: white;
+      background-color: var(--datatools-blue);
+
+      &:disabled {
+        color: gray;
+        background-color: var(--datatools-gray);
+      }
+    }
+  }
+
+  .mfa-form {
+    display: flex;
+    justify-content: center;
+  }
+
+  .mfa-btn-container {
+    display: flex;
+    justify-content: center;
+
+    .mfa-btn-validar-codigo {
+      color: white;
+      background-color: var(--datatools-blue);
+      margin-right: 2%;
+
+      &:disabled {
+        color: gray;
+        background-color: var(--datatools-gray);
+      }
+    }
+
+    .mfa-btn-cancelar {
+      color: white;
+      background-color: var(--datatools-red);
+    }
+  }
+}
