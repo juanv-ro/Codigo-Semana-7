@@ -1,0 +1,6 @@
+## Para ejecutar el angular, es necesario cumplir con los siguientes requisitos.
+1. Node version 18.19.9
+
+## Ejecutar los siguientes pasos.
+1. npm install
+2. ng serve
